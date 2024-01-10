@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/finances
+    url: jdbc:postgresql://localhost:5432/education
     username: my-user
     password: 123456
 
