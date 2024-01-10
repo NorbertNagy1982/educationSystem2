@@ -1,7 +1,6 @@
 package educationsystem.example.educationsystem.domain;
 
 import jakarta.persistence.*;
-
 import java.util.Set;
 
 @Entity
