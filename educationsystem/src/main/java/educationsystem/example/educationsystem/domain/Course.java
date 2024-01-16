@@ -1,12 +1,17 @@
 package educationsystem.example.educationsystem.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Set;
 
 @Entity
+@Getter
+@Setter
 @Table(name="course_table")
 public class Course {
 
@@ -27,7 +32,7 @@ public class Course {
     private LocalDate registrationEnd;
     @Column(name="coursedescription")
     private String courseDescription;
-    @OneToMany(mappedBy = "course")
+    @ManyToMany(mappedBy = "courseSet")
     private Set<User> userSet;
     @OneToMany(mappedBy = "course")
     private Set<Forum> forumSet;

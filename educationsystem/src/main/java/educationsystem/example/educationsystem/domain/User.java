@@ -1,10 +1,15 @@
 package educationsystem.example.educationsystem.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 import java.util.Set;
 
 @Entity
 @Table(name = "user_table")
+@Getter
+@Setter
 public class User {
 
     @Id
@@ -27,10 +32,14 @@ public class User {
     private String password;
     @Column(name="activated")
     private Boolean activated;
-    @ManyToOne
-    @JoinColumn(name="course_fk")
-    private Course course;
+    @ManyToMany
+    @JoinTable(
+            name = "user_course",
+            joinColumns = @JoinColumn(name = "user_fk"),
+            inverseJoinColumns = @JoinColumn(name = "course_fk")
+    )
+    @JsonIgnore
+    private Set<Course> courseSet;
     @OneToMany(mappedBy = "user")
     private Set<Forum> forumSet;
-
 }

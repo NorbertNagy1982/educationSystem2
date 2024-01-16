@@ -1,11 +1,15 @@
 package educationsystem.example.educationsystem.domain;
 
 import jakarta.persistence.*;
+import lombok.Getter;
+import lombok.Setter;
 
 import java.time.LocalDate;
 
 @Entity
 @Table(name="forum_table")
+@Getter
+@Setter
 public class Forum {
 
     @Id
@@ -22,6 +26,6 @@ public class Forum {
     @Column(name="enabled")
     private Boolean enabled;
     @ManyToOne
-    @JoinColumn(name="courseid")
+    @JoinColumn(name="course_fk")
     private Course course;
 }
