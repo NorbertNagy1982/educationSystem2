@@ -3,6 +3,7 @@ package educationsystem.example.educationsystem.controller;
 import educationsystem.example.educationsystem.domain.User;
 import educationsystem.example.educationsystem.domain.UserType;
 import educationsystem.example.educationsystem.dto.UserDto;
+import educationsystem.example.educationsystem.service.Authentication;
 import educationsystem.example.educationsystem.service.UserService;
 import lombok.AllArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -25,9 +26,8 @@ public class UserController {
     }
 
     @GetMapping("/login")
-    public ResponseEntity<UserDto>login(@RequestParam(name="username")String username,
-                                        @RequestParam(name="password")String password){
-        return ResponseEntity.ok(userService.identifyUser(username,password));
+    public ResponseEntity<UserDto>login(@RequestBody Authentication authentication){
+        return ResponseEntity.ok(userService.identifyUser(authentication));
     }
 
 }

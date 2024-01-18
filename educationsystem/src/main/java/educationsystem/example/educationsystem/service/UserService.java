@@ -70,10 +70,10 @@ public List<Forum> getAllForumEntry(Integer userId){
             .collect(Collectors.toList());
 }
 
-public UserDto identifyUser(String username, String password){
+public UserDto identifyUser(Authentication authentication){
     return userRepository.findAll().stream()
-    .filter(x-> x.getUsername().equalsIgnoreCase(username))
-    .filter(x->x.getPassword().equalsIgnoreCase(password))
+    .filter(x-> x.getUsername().equalsIgnoreCase(authentication.getUsername()))
+    .filter(x->x.getPassword().equalsIgnoreCase(authentication.getPassword()))
             .map(userMapper::convertUserToDto)
             .findFirst().orElse(null);
 }
