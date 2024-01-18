@@ -1,10 +1,15 @@
 package educationsystem.example.educationsystem.service;
 
 import educationsystem.example.educationsystem.domain.*;
+import educationsystem.example.educationsystem.dto.CourseDto;
+import educationsystem.example.educationsystem.dto.UserDto;
+import educationsystem.example.educationsystem.mapper.CourseMapper;
+import educationsystem.example.educationsystem.mapper.UserMapper;
 import educationsystem.example.educationsystem.repository.CourseRepository;
 import educationsystem.example.educationsystem.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
+import org.springframework.context.annotation.Lazy;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
@@ -16,34 +21,38 @@ import java.util.stream.Collectors;
 
 @Service
 @Transactional
-@AllArgsConstructor
 public class CourseService {
 
     private final CourseRepository courseRepository;
     private final UserService userService;
+    private final ForumService forumService;
     private final int LENGTH_OF_COURSECODE = 4;
+    private final CourseMapper mapper;
+    private final UserMapper userMapper;
 
-    public Course createCourse(Integer userId, Course courseParam) {
+    public CourseService(CourseRepository courseRepository, UserService userService, @Lazy ForumService forumService,
+                         CourseMapper mapper, UserMapper userMapper) {
+        this.courseRepository = courseRepository;
+        this.userService = userService;
+        this.forumService = forumService;
+        this.mapper = mapper;
+        this.userMapper = userMapper;
+    }
 
+    public CourseDto createCourse(Integer userId, CourseDto courseDto) {
         User user = userService.findById(userId);
         if (user != null && user.getActivated()) {
-            Course course = new Course();
-            course.setTitle(courseParam.getTitle());
-            course.setCourseType(courseParam.getCourseType());
-            course.setCourseDescription(courseParam.getCourseDescription());
+            Course course = mapper.convertDtoToCourse(courseDto);
             course.setActivated(true);
             course.setCode(this.codeGenerator());
             course.setForumSet(new HashSet<>());
-            course.setExamType(courseParam.getExamType());
-            course.setLimitOfRegisteredStudents(courseParam.getLimitOfRegisteredStudents());
-            course.setRegistrationStart(courseParam.getRegistrationStart());
-            course.setRegistrationEnd(courseParam.getRegistrationEnd());
             course.setUserSet(new HashSet<>());
             course.getUserSet().add(user);
             user.getCourseSet().add(course);
             course.setNumberOfRegisteredStudents(this.studentNumberCalculator(course.getUserSet()));
             courseRepository.save(course);
-            return course;
+            CourseDto dto = mapper.convertCourseToDto(course);
+            return dto;
         }
         return null;
     }
@@ -77,16 +86,19 @@ public class CourseService {
         return courseRepository.findById(id).orElse(null);
     }
 
-    public List<Course>findAll(){
+    public List<CourseDto>findAll(){
         return courseRepository.findAll().stream()
+                .map(mapper::convertCourseToDto)
                 .collect(Collectors.toList());
     }
 
-    public void registerToCourse(Integer userId, Integer courseId) {
+    public CourseDto registerToCourse(Integer userId, Integer courseId) {
         User user = userService.findById(userId);
         Course course = courseRepository.findById(courseId).orElse(null);
         course.getUserSet().add(user);
         courseRepository.save(course);
+        CourseDto courseDto = mapper.convertCourseToDto(course);
+        return courseDto;
     }
 
     public Course setCourse(Integer userId, Integer courseId, String title, CourseType courseType, String description, ExamType examType,
@@ -116,4 +128,28 @@ public class CourseService {
         return null;
     }
 
+    public Forum createForumEntry(Integer userId, Integer courseId, Forum forum){
+        User user = userService.findById(userId);
+        Course course = courseRepository.findById(courseId).orElse(null);
+        System.out.println(user);
+        System.out.println(course);
+        if (user != null && course != null && user.getActivated()){
+            Forum forumEntry = new Forum();
+            forumEntry.setUser(user);
+            forumEntry.setCourse(course);
+            forumEntry.setMessage(forum.getMessage());
+            forumEntry.setDateOfMessage(forum.getDateOfMessage());
+            courseRepository.save(course);
+            forumService.save(forumEntry);
+            return forumEntry;
+        }
+        return null; //specifikus kivétel kell.
+    }
+
+public List<UserDto>findAllRegisteredUser(Integer courseId){
+        Course course = courseRepository.findById(courseId).orElse(null);
+        return course.getUserSet().stream()
+                .map(userMapper::convertUserToDto)
+                .collect(Collectors.toList());
+}
 }

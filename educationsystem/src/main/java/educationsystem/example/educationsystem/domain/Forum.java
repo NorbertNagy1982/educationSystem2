@@ -1,5 +1,6 @@
 package educationsystem.example.educationsystem.domain;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
@@ -22,10 +23,12 @@ public class Forum {
     private LocalDate dateOfMessage;
     @ManyToOne
     @JoinColumn(name="user_fk")
+    @JsonIgnore
     private User user;
     @Column(name="enabled")
     private Boolean enabled;
     @ManyToOne
     @JoinColumn(name="course_fk")
+    @JsonIgnore
     private Course course;
 }

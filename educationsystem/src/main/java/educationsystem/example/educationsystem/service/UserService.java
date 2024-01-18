@@ -1,12 +1,17 @@
 package educationsystem.example.educationsystem.service;
 
+import educationsystem.example.educationsystem.domain.Forum;
 import educationsystem.example.educationsystem.domain.User;
 import educationsystem.example.educationsystem.domain.UserType;
+import educationsystem.example.educationsystem.dto.UserDto;
+import educationsystem.example.educationsystem.mapper.UserMapper;
 import educationsystem.example.educationsystem.repository.UserRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 import java.util.HashSet;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -14,6 +19,7 @@ import java.util.HashSet;
 public class UserService {
 
     private final UserRepository userRepository;
+    private final UserMapper userMapper;
 
 public User save(User userParam){
     User user = new User();
@@ -56,6 +62,20 @@ public void modifyUserStatus(Integer userId, UserType userType){
         user.setUserType(userType);
         userRepository.save(user);
     }
+}
+
+public List<Forum> getAllForumEntry(Integer userId){
+    User user = userRepository.findById(userId).orElse(null);
+    return user.getForumSet().stream()
+            .collect(Collectors.toList());
+}
+
+public UserDto identifyUser(String username, String password){
+    return userRepository.findAll().stream()
+    .filter(x-> x.getUsername().equalsIgnoreCase(username))
+    .filter(x->x.getPassword().equalsIgnoreCase(password))
+            .map(userMapper::convertUserToDto)
+            .findFirst().orElse(null);
 }
 
 

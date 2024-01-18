@@ -41,5 +41,6 @@ public class User {
     @JsonIgnore
     private Set<Course> courseSet;
     @OneToMany(mappedBy = "user")
+    @JsonIgnore
     private Set<Forum> forumSet;
 }

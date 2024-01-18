@@ -9,6 +9,8 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional
@@ -17,23 +19,23 @@ public class ForumService {
 
     private final ForumRepository forumRepository;
     private final CourseService courseService;
-    private final UserService userService;
 
 
-    public Forum createForumEntry(Integer userId, Integer courseId, Forum forum){
-        User user = userService.findById(userId);
-        Course course = courseService.findById(courseId);
-        if (user != null && course != null && user.getActivated()){
-        Forum forumEntry = new Forum();
-        forumEntry.setUser(user);
-        forumEntry.setCourse(course);
-        forumEntry.setMessage(forum.getMessage());
-        forumEntry.setDateOfMessage(forum.getDateOfMessage());
-        forumRepository.save(forumEntry);
-        return forumEntry;
-        }
-        return null; //specifikus kivétel kell.
+
+public void save(Forum forum){
+    forumRepository.save(forum);
+}
+
+public List<Forum> findAll(Integer courseId) {
+    Course course = courseService.findById(courseId);
+    if (course != null) {
+        return course.getForumSet().stream()
+                .collect(Collectors.toList());
     }
+return null;
+}
+
+
 
 
 }

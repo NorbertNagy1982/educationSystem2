@@ -32,7 +32,7 @@ public class Course {
     private LocalDate registrationEnd;
     @Column(name="coursedescription")
     private String courseDescription;
-    @ManyToMany(mappedBy = "courseSet")
+    @ManyToMany(mappedBy = "courseSet", fetch = FetchType.LAZY)
     private Set<User> userSet;
     @OneToMany(mappedBy = "course")
     private Set<Forum> forumSet;
