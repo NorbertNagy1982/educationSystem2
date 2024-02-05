@@ -15,6 +15,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/user")
 @AllArgsConstructor
+@CrossOrigin(origins = "http://localhost:4200")
 public class UserController {
 
     private final UserService userService;
@@ -25,7 +26,7 @@ public class UserController {
         return ResponseEntity.ok(userService.save(user));
     }
 
-    @GetMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<UserDto>login(@RequestBody Authentication authentication){
         return ResponseEntity.ok(userService.identifyUser(authentication));
     }

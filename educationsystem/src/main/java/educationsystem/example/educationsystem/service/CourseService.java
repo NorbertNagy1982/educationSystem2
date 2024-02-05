@@ -82,13 +82,20 @@ public class CourseService {
         return sb.toString();
     }
 
-    public Course findById(Integer id) {
-        return courseRepository.findById(id).orElse(null);
+    public CourseDto findById(Integer id) {
+      CourseDto courseDto = null;
+      Optional courseOptional = courseRepository.findById(id);
+      if (courseOptional.isPresent()){
+        Course course = (Course)courseOptional.get();
+        courseDto = mapper.convertCourseToDto(course);
+      }
+        return courseDto;
     }
 
     public List<CourseDto>findAll(){
         return courseRepository.findAll().stream()
                 .map(mapper::convertCourseToDto)
+          .peek(x->x.setNumberOfRegisteredStudents(this.studentNumberCalculator(x.getUserSet())))
                 .collect(Collectors.toList());
     }
 
@@ -96,6 +103,7 @@ public class CourseService {
         User user = userService.findById(userId);
         Course course = courseRepository.findById(courseId).orElse(null);
         course.getUserSet().add(user);
+        course.setNumberOfRegisteredStudents(course.getNumberOfRegisteredStudents()+1);
         courseRepository.save(course);
         CourseDto courseDto = mapper.convertCourseToDto(course);
         return courseDto;

@@ -1,0 +1,52 @@
+<table class="course_table">
+  <thead>
+    <th>Hallgatói kód</th>
+    <th>Vezetéknév</th>
+    <th>Keresztnév</th>
+    <th>Keresztnév</th>
+    <th>Aktív hallgató?</th>
+  
+  </thead>
+<tbody>
+  <tr >
+    <td>{{signedInUser.userCode}}</td>
+    <td>{{signedInUser.familyName}}</td>
+    <td>{{signedInUser.middleName}}</td>
+    <td>{{signedInUser.firstname}}</td>
+    <td>{{signedInUser.activated}}</td>
+ 
+    
+  </tr>
+</tbody>
+</table>
+
+
+<table class="user_table">
+  <thead>
+    <th>Id</th>
+    <th>Kurzuskód</th>
+    <th>Kurzuscím</th>
+    <th>Kurzus típusa</th>
+    <th>Regisztráció kezdete</th>
+    <th>Regisztráció vége</th>
+    <th>Max. létszám</th>
+    <th>Létszám</th>
+    <th>Vizsga típusa</th>
+    <th>Bővebben</th>
+  </thead>
+<tbody>
+  <tr *ngFor = "let item of courseList">
+    <td>{{item.dtoId}}</td>
+    <td>{{item.code}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.examType}}</td>
+    <td>{{item.registrationStart}}</td>
+    <td>{{item.registrationEnd}}</td>
+    <td>{{item.limitOfRegisteredStudents}}</td>
+    <td>{{item.numberOfRegisteredStudents}}</td>
+    <td>{{item.examType}}</td>
+    <td><button  (click)= "showDetails(item.dtoId)">Bővebben</button></td>
+    
+  </tr>
+</tbody>
+</table>

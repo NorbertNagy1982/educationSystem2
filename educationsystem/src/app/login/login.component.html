@@ -1,0 +1,13 @@
+<form class="login">
+<div>
+  <span>Felhasználónév: </span>
+  <input type="text" [(ngModel)]="username" name="name" #priceModel="ngModel" required >
+</div>
+<br>
+
+<div>
+  <span>Jelszó: </span>
+  <input type="password" [(ngModel)]="password" name="name" #priceModel="ngModel" required >
+</div>
+<button type="submit" (click)="login()" class="submitButton" >Mentés</button>
+</form>

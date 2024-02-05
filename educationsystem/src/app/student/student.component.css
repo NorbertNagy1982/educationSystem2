@@ -1,0 +1,22 @@
+.course_table{
+    position: absolute;
+    left:10px;
+    top:50px;
+    color:black;
+    font-size: 10px;
+    width: 1200px;
+    border:1px solid black;
+    text-align: center;  
+}
+
+
+.user_table{
+    position: absolute;
+    left:10px;
+    top:200px;
+    color:black;
+    font-size: 10px;
+    width: 1200px;
+    border:1px solid black;
+    text-align: center;  
+}

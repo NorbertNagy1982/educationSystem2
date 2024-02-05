@@ -25,7 +25,8 @@ public interface CourseMapper {
             @Mapping(target = "courseId", ignore = true),
             @Mapping(target = "code", ignore = true),
             @Mapping(target = "numberOfRegisteredStudents", ignore = true),
-            @Mapping(target = "activated", ignore = true)
+            @Mapping(target = "activated", ignore = true),
+            @Mapping(target = "userSet", ignore = true)
     })
     Course convertDtoToCourse(CourseDto courseDto);
 

@@ -3,6 +3,7 @@ package educationsystem.example.educationsystem.service;
 import educationsystem.example.educationsystem.domain.Course;
 import educationsystem.example.educationsystem.domain.Forum;
 import educationsystem.example.educationsystem.domain.User;
+import educationsystem.example.educationsystem.dto.CourseDto;
 import educationsystem.example.educationsystem.repository.ForumRepository;
 import jakarta.transaction.Transactional;
 import lombok.AllArgsConstructor;
@@ -27,10 +28,10 @@ public void save(Forum forum){
 }
 
 public List<Forum> findAll(Integer courseId) {
-    Course course = courseService.findById(courseId);
+    CourseDto course = courseService.findById(courseId);
     if (course != null) {
-        return course.getForumSet().stream()
-                .collect(Collectors.toList());
+      //  return course.getForumSet().stream()
+        //        .collect(Collectors.toList());
     }
 return null;
 }

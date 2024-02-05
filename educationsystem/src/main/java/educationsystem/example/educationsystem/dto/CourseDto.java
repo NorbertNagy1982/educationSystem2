@@ -28,6 +28,7 @@ public class CourseDto {
     private Integer limitOfRegisteredStudents;
     private Integer numberOfRegisteredStudents;
     private ExamType examType;
+    private Set<User>userSet;
 
 
     //a gyűjteményeket (set, list) nem kell belerakni a dto-ba, mert amikor létrejön egy objektum, üres
