@@ -1,0 +1,10 @@
+.student_table{
+    position: absolute;
+    left:10px;
+    top:100px;
+    color:black;
+    font-size: 10px;
+    width: 1200px;
+    border:1px solid black;
+    text-align: center;  
+}

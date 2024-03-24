@@ -1,0 +1,59 @@
+<button class="search-by-user-btn" (click)="toggleUserSearch()">Keresés felhasználó alapján</button>
+<button class="search-by-course-btn" (click)="toggleCourseSearch()">Keresés kurzus alapján</button>
+
+
+<div *ngIf="showSearchByUser">
+<h2 class="search-user-title">Fórumbejegyzések felhasználó alapján </h2>
+<div class="search-name">
+  <input type="text" [(ngModel)]="searchTerm" (keypress)="searchUsers()">
+  <ol>
+    <li *ngFor="let user of user" (click)="user && selectName(user)">{{ user.familyName }}<span>&nbsp;</span>{{user.middleName}}<span>&nbsp;</span>{{user.firstname}}</li>
+  </ol>
+</div>
+</div>
+
+<div *ngIf="showSearchByCourse">
+  <h2 class="search-user-title">Fórumbejegyzések kurzus alapján </h2>
+  <div class="search-name">
+    <input type="text" [(ngModel)]="searchTerm" (keypress)="searchCourse()">
+    <ol>
+      <li *ngFor="let course of courseList" (click)="course && selectCourse(course)">{{ course.code }}<span>&nbsp;</span>{{course.title}}</li>
+    </ol>
+  </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+<div class="container">
+  <div *ngFor="let entry of forumList" class="entry" >
+    {{entry.courseDto?.title}}
+    <br>
+    {{entry.dtoId}}
+    <br>
+    {{entry.userDto!.familyName}} {{ entry.userDto?.firstname }} {{ entry.userDto?.middleName }}
+    <br>
+    {{entry.dateOfMessage}}
+    <br>
+    {{entry.message}}
+  </div>
+  </div>
+
+  <div class="empty-message" *ngIf="showEmptyMessage">
+    {{emptyMessage}}
+  </div>
+
+
+
+<div *ngIf="showInputField">
+ <input type="number" class="id-input" [(ngModel)]="forumId" >
+ <button (click)="disableForumEntry()" class="del-btn">Fórumbejegyzés törlése</button>
+</div>
+
+<button (click)="getBack()" class="back-btn">Vissza</button>

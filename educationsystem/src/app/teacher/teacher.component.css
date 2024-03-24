@@ -1,0 +1,20 @@
+.course-table-title{
+    position:absolute;
+    top:70px;
+    left:500px;
+}
+
+.course-table{
+    position:absolute;
+    top: 180px;
+    left:200px;
+    width:800px;
+    
+    border-collapse: collapse;
+  
+}
+
+.course-table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }

@@ -1,0 +1,123 @@
+<h2 class="new-user-title">Új felhasználó felvétele a rendszerbe</h2>
+
+<form class="new-user">
+
+  <div class="type">
+    <span>Felhasználó státusza: </span>
+    <select [(ngModel)]="userType" name="userType">
+      <option value="STUDENT">Hallgató</option>
+      <option value="TEACHER">Oktató</option>
+      <option value="PRINCIPAL_TEACHER">Vezető tanár</option>
+      <option value="ADMIN">Adminisztrátor</option>
+    </select>
+  </div>
+
+  <div class="family-name">
+    <span>Családi név: </span>
+    <input type="text" [(ngModel)]="familyName" name="famname" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="middle-name">
+    <span>Első keresztnév: </span>
+    <input type="text" [(ngModel)]="middleName" name="midname" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="first-name">
+    <span>Második keresztnév: </span>
+    <input type="text" [(ngModel)]="firstName" name="fstname" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="user-name">
+    <span>Felhasználónév: </span>
+    <input type="text" [(ngModel)]="userName" name="usrname" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="password">
+    <span>Jelszó: </span>
+    <input type="text" [(ngModel)]="password" name="pswrd" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <button type="submit" (click)="createUser()" class="submitbutton" >Új felhasználó mentése</button>
+  </form>
+
+
+  <h2 class="search-user-title">Felhasználók keresése </h2>
+  <div class="search-name">
+    <input type="text" [(ngModel)]="searchTerm" (keypress)="searchUsers()">
+    <ol>
+      <li *ngFor="let user of user" (click)="user && selectName(user)">{{ user.familyName }}<span>&nbsp;</span>{{user.middleName}}<span>&nbsp;</span>{{user.firstname}}</li>
+    </ol>
+  </div>
+
+
+  <h2 class="mod-user-title">Felhasználó adatainak módosítása</h2>
+
+  <form class="modify-user">
+
+    <div class="type-mod">
+      <span>Felhasználó státusza: </span>
+      <select [(ngModel)]="userType" name="userType">
+        <option value="STUDENT">Hallgató</option>
+        <option value="TEACHER">Oktató</option>
+        <option value="PRINCIPAL_TEACHER">Vezető tanár</option>
+        <option value="ADMIN">Adminisztrátor</option>
+      </select>
+    </div>
+  
+    <div class="family-name-mod">
+      <span>Családi név: </span>
+      <input type="text" [(ngModel)]="familyNameMod" name="famname" #priceModel="ngModel" required class="input-textfield" >
+    </div>
+  
+    <div class="middle-name-mod">
+      <span>Első keresztnév: </span>
+      <input type="text" [(ngModel)]="middleNameMod" name="midname" #priceModel="ngModel" required class="input-textfield" >
+    </div>
+  
+    <div class="first-name-mod">
+      <span>Második keresztnév: </span>
+      <input type="text" [(ngModel)]="firstNameMod" name="fstname" #priceModel="ngModel" required class="input-textfield" >
+    </div>
+  
+    <div class="user-name-mod">
+      <span>Felhasználónév: </span>
+      <input type="text" [(ngModel)]="userNameMod" name="usrname" #priceModel="ngModel" required class="input-textfield" >
+    </div>
+  
+    <div class="password-mod">
+      <span>Jelszó: </span>
+      <input type="text" [(ngModel)]="passwordMod" name="pswrd" #priceModel="ngModel" required class="input-textfield" >
+    </div>
+  
+    <button type="submit" (click)="modifyUser()" class="submitbutton-mod" >Adatmódosítás</button>
+    </form>
+
+
+    <table class="selected-user-table" *ngIf = "showTable">
+      <thead>
+        <th>Id</th>
+        <th>Kód</th>
+        <th>Státusz</th>
+        <th>Vezetéknév</th>
+        <th>Keresztnév</th>
+        <th>Keresztnév</th>
+        <th>Felhasználónév</th>
+        <th>Jelszó</th>
+      </thead>
+    
+    <tbody>
+      <tr >
+        <td>{{userChoosen.dtoId}}</td>
+        <td>{{userChoosen.userCode}}</td>
+        <td>{{userChoosen.userType}}</td>
+        <td>{{userChoosen.familyName}}</td>
+        <td>{{userChoosen.middleName}}</td>
+        <td>{{userChoosen.firstname}}</td>
+        <td>{{userChoosen.username}}</td>
+        <td>{{userChoosen.password}}</td>
+      </tr>
+    </tbody>
+    </table>
+    <button class="inactivate-user" [disabled]="disableInactivateBtn">Felhasználó inaktiválása-nem műxik még</button>
+
+    <button (click)="getBack()" class="back-btn">Vissza</button>

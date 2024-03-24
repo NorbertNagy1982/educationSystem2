@@ -1,0 +1,42 @@
+.new-course-btn{
+    position: absolute;
+    top:100px;
+    width:200px;
+    height:100px;
+}
+
+.modify-course-btn{
+    position: absolute;
+    top:100px;
+    width:200px;
+    height:100px;
+    left:300px;
+    
+}
+
+.manage-stud-btn{
+    position: absolute;
+    top:100px;
+    width:200px;
+    height:100px;
+    left:600px;
+    
+}
+
+.inactivate-course-btn{
+    position: absolute;
+    top:100px;
+    width:200px;
+    height:100px;
+    left:900px;
+    
+}
+
+.back-btn{
+    position:absolute;
+    top:110px;
+    width:100px;
+    height:70px;
+    right:50px;
+    background-color:lightgreen
+}

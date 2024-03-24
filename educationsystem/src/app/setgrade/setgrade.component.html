@@ -1,0 +1,36 @@
+<table class="user-course-table">
+  <thead>
+
+    <th>Hallgatói kód</th>
+    <th>Vezetéknév</th>
+    <th>Keresztnév</th>
+    <th>Keresztnév</th>
+    <th>Kurzuskód</th>
+    <th>Kurzus neve</th>
+    <th>Érdemjegy</th>
+    <th>Ment</th>
+
+  </thead>
+
+<tbody>
+  <tr >
+    <td>{{actualUser.userCode}}</td>
+    <td>{{actualUser.familyName}}</td>
+    <td>{{actualUser.firstname}}</td>
+    <td>{{actualUser.middleName}}</td>
+    <td>{{actualCourse.code}}</td>
+    <td>{{actualCourse.title}}</td>
+    <td><select [(ngModel)]="selectedGrade" >
+      <option value="1">1</option>
+      <option value="2">2</option>
+      <option value="3">3</option>
+      <option value="4">4</option>
+      <option value="5">5</option>
+    </select></td>
+    <td><button (click)="setGrade()">Mentés</button></td>
+  </tr>
+</tbody>
+
+
+
+

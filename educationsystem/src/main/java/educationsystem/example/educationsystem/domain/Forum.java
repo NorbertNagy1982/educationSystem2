@@ -23,7 +23,6 @@ public class Forum {
     private LocalDate dateOfMessage;
     @ManyToOne
     @JoinColumn(name="user_fk")
-    @JsonIgnore
     private User user;
     @Column(name="enabled")
     private Boolean enabled;

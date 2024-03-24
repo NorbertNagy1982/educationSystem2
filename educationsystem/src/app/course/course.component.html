@@ -1,13 +1,49 @@
+<div class="container">
 <h1>Bővebb Információ a Választott Tantárgyról</h1>
 <br>
 <h2>Tantárgy kódja: <span>{{courseData.code}}</span></h2>
 <br>
 <h2>Tantárgy címe: <span>{{courseData.title}}</span></h2>
 <br>
+<h2>Vizsga típusa: <span>{{courseData.examType}}</span></h2>
+<br>
 <h2>Rövid ismertető: <span>{{courseData.courseDescription}}</span></h2>
+<br>
+<button (click)="openForum()" class="forum-button" >Forum</button>
+<br>
+<button (click)="registerToCourse()" class="reg-button">Regisztráció a kurzusra</button>
+<br>
+<button (click)="deleteRegistryFromCourse()" class="del-button">Regisztráció törlése</button>
+<br>
+<button (click)="backToCourseList()" class="back-to-courselist">Vissza a kurzuslistához</button>
+<br>
+<table class="student_table">
+    <thead>
+      <th>Hallgató kódja</th>
+      <th>Vezetéknév</th>
+      <th>Keresztnév</th>
+      <th>Keresztnév</th>
+     
+    </thead>
+  <tbody>
+    <tr *ngFor = "let item of studentList">
+      <td>{{item.userCode}}</td>
+      <td>{{item.familyName}}</td>
+      <td>{{item.middleName}}</td>
+      <td>{{item.firstname}}</td>
+      
+      
+    </tr>
+  </tbody>
+  </table>
+
+</div>
 
 
 
+<div class="reg-student-list">
+    <h2>Regisztrált hallgatók listája</h2>
+    </div>
  
     
 

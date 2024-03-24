@@ -1,12 +1,9 @@
 package educationsystem.example.educationsystem.domain;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
-
 import java.time.LocalDate;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -32,8 +29,8 @@ public class Course {
     private LocalDate registrationEnd;
     @Column(name="coursedescription")
     private String courseDescription;
-    @ManyToMany(mappedBy = "courseSet", fetch = FetchType.LAZY)
-    private Set<User> userSet;
+    @OneToMany(mappedBy = "course")
+    private Set<UserCourse> userCourses;
     @OneToMany(mappedBy = "course")
     private Set<Forum> forumSet;
     //private List<UploadMaterials> uploadMaterialsList;
@@ -46,6 +43,8 @@ public class Course {
     @Enumerated(EnumType.STRING)
     @Column(name="examtype")
     private ExamType examType;
+  @Column(name="grade")
+    private Integer grade;
 
 
 

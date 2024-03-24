@@ -1,0 +1,25 @@
+
+<div class="container">
+<div *ngFor="let entry of forumList" class="entry">
+  {{entry.userDto!.familyName}} {{ entry.userDto!.firstname }} {{ entry.userDto!.middleName }}
+  <br>
+  {{entry.dateOfMessage}}
+  <br>
+  {{entry.message}}
+</div>
+</div>
+
+
+<div>
+  <textarea class="textarea"  placeholder="Írjon üzenetet..." [(ngModel)]="forumMessage"></textarea>
+  <button class="forum_button" (click)="createForumEntry()">Elküldés</button>
+</div>
+
+
+
+  <div class="course-title">
+    <h1>{{courseData.title}}</h1>
+    </div>
+
+
+    <button (click)="getBack()" class="back-btn">Vissza</button>

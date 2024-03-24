@@ -19,6 +19,7 @@ public class User {
     @Column(name="usercode")
     private String userCode;
     @Column(name="usertype")
+    @Enumerated(EnumType.STRING)
     private UserType userType;
     @Column(name="familyname")
     private String familyName;
@@ -32,14 +33,9 @@ public class User {
     private String password;
     @Column(name="activated")
     private Boolean activated;
-    @ManyToMany
-    @JoinTable(
-            name = "user_course",
-            joinColumns = @JoinColumn(name = "user_fk"),
-            inverseJoinColumns = @JoinColumn(name = "course_fk")
-    )
+    @OneToMany(mappedBy = "user")
     @JsonIgnore
-    private Set<Course> courseSet;
+    private Set<UserCourse> userCourses;
     @OneToMany(mappedBy = "user")
     @JsonIgnore
     private Set<Forum> forumSet;

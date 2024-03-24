@@ -1,0 +1,34 @@
+<h1 class="course-table-title">
+ Oktatott kurzusaim: 
+</h1>
+
+
+<table class="course-table">
+  <thead>
+    <th>Kurzuskód</th>
+    <th>Kurzuscím</th>
+    <th>Regisztráció kezdete</th>
+    <th>Regisztráció vége</th>
+    <th>Max létszám</th>
+    <th>Aktuális létszám</th>
+    <th>Vizsga típusa</th>
+    <th>Hallgatók listája</th>
+    
+   
+  </thead>
+<tbody>
+  <tr *ngFor = "let item of allRegisteredCoursesList">
+    <td>{{item.code}}</td>
+    <td>{{item.title}}</td>
+    <td>{{item.registrationStart}}</td>
+    <td>{{item.registrationEnd}}</td>
+    <td>{{item.limitOfRegisteredStudents}}</td>
+    <td>{{item.numberOfRegisteredStudents}}</td>
+    <td>{{item.examType}}</td>
+    <td><button  (click)= "showDetails(item.dtoId)">Megnyitás</button></td>
+ 
+   
+    
+  </tr>
+</tbody>
+</table>

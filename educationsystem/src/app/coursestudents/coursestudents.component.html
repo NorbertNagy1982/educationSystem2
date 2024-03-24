@@ -1,0 +1,41 @@
+<table class="user-table">
+  <thead>
+    <th>Id</th>
+    <th>Hallgatói kód</th>
+    <th>Vezetéknév</th>
+    <th>Keresztnév</th>
+    <th>Keresztnév</th>
+    <th>Felhasználónév</th>
+    <th>Státusz</th>
+    <th>Érdemjegy<th>
+    
+  
+
+  
+  
+   
+  </thead>
+<tbody>
+  <tr *ngFor = "let item of allUserCourse">
+    <td>{{item.userDto!.dtoId}}</td>
+    <td>{{item.userDto!.userCode}}</td>
+    <td>{{item.userDto!.familyName}}</td>
+    <td>{{item.userDto!.firstname}}</td>
+    <td>{{item.userDto!.middleName}}</td>
+    <td>{{item.userDto!.username}}</td>
+    <td>{{item.userDto!.userType}}</td>
+    <td>{{item.grade}}</td>
+ 
+
+
+
+      <td><button (click) ="openSetGrade(item.userDto!.dtoId)" >Jegybeírás</button></td>
+    
+  </tr>
+</tbody>
+</table>
+
+
+<button (click)="navigateToForum()" class="forum-btn">Fórum megnyitása</button>
+
+<button (click)="getBack()" class="back-btn">Vissza</button>

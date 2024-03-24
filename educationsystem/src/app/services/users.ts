@@ -1,3 +1,5 @@
+import { UserCourse } from "./user_course";
+
 export interface UserDto{
 
     dtoId?:number;
@@ -9,5 +11,6 @@ export interface UserDto{
   username?:string;
   password?:string;
  activated?:boolean;
+ usercourses? : UserCourse;
 
 }

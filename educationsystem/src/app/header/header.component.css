@@ -1,0 +1,45 @@
+.header{
+    position: absolute;
+    top:0px;
+    left:0px;
+    height:50px;
+    width: 1250px; 
+    background-color:darkgray;
+    text-align: center;
+    font-size: 40px;
+    font-family: Arial;
+    color:white;
+}
+
+.pointer-link {
+    cursor: pointer;
+  }
+
+
+.data{
+    position:absolute;
+    top:5px;
+    left:820px;
+}
+
+.date{
+    position:absolute;
+    top:5px;
+    left: 30px;
+}
+
+.logout-button{
+    position:absolute;
+    top:15px;
+    left:1200px;
+    background-color:aqua;
+}
+
+
+.personal-data-button{
+    position:absolute;
+    top:15px;
+    left:200px;
+   
+    width:200px;
+}

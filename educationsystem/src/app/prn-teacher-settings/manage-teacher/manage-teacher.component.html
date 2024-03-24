@@ -1,0 +1,41 @@
+<div class="search-name">
+  <input type="text" [(ngModel)]="searchTerm" (keypress)="searchUsers()">
+  <ul>
+    <li *ngFor="let user of users" (click)="user && selectName(user)">{{ user.familyName }}<span>&nbsp;</span>{{user.middleName}}</li>
+  </ul>
+</div>
+
+
+<div class="selected-stud">
+  <p>Kiválasztott tanár:<span>&nbsp;</span> {{studentChoosen.familyName}}<span>&nbsp;</span>{{studentChoosen.middleName}}</p>
+</div>
+
+<div class="selected-course">
+  <p >Kiválasztott kurzus: <span>&nbsp;</span>{{courseChoosen.code}}<span>&nbsp;</span>{{courseChoosen.title}}</p>
+</div>
+
+
+<h3 class="find-stud">Tanár keresése: </h3>
+
+
+  <button class="assign-button" (click)="registerToCourse()" [disabled]="regBtnDisabled">Hozzárendel</button>
+
+
+<div class="available-course-list">
+  <span>Oktatóhoz hozzárendelhető kurzusok: </span>
+  <ul>
+    <li *ngFor="let course of courseList" (click)="selectCourse(course)" >{{ course.code }} <span>&nbsp;</span> {{ course.title }}</li>
+  </ul>
+</div>
+
+<div class="registered-course-list">
+  <span>Oktatott kurzusok: </span>
+  <ul>
+    <li *ngFor="let course of courseListRegistered" (click)="selectCourseToDelete(course)" >{{ course.code }} <span>&nbsp;</span> {{ course.title }}</li>
+  </ul>
+</div>
+
+<button class="del-button" (click)="deleteRegisteredCourse()" [disabled]="delBtnDisabled">Töröl</button>
+
+
+<button (click)="getBack()" class="back-btn">Vissza</button>

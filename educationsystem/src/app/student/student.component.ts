@@ -21,10 +21,11 @@ course: Course = {};
   ngOnInit() {
     this.getUserData();
     this.getCourseList();
+ 
   }
 
 getCourseList():void{
-this.httpClient.get<Course[]>('http://localhost:8083/course/all')
+this.httpClient.get<Course[]>(`http://localhost:8083/user/allcourseofuser?userid=${this.signedInUser.dtoId}`)
 .subscribe(  
 data =>{
   this.courseList = data;
@@ -40,6 +41,7 @@ getUserData():void{
 }
 
 registerToCourse(courseId:any):void{
+
   const userId = this.signedInUser.dtoId;
   this.httpClient.get<Course>(`http://localhost:8083/course/register?userid=${userId}&courseid=${courseId}`)
 .subscribe(
@@ -52,6 +54,8 @@ registerToCourse(courseId:any):void{
     }
   }
 )
+  
+
 }
 
 showDetails(courseId:any):void{
@@ -67,7 +71,9 @@ showDetails(courseId:any):void{
 }
 
 
-
+refresh():void{
+  window.location.reload();
+}
 
 
 

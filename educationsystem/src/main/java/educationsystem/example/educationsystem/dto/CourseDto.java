@@ -10,6 +10,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.time.LocalDate;
+import java.util.Objects;
 import java.util.Set;
 
 @AllArgsConstructor
@@ -29,7 +30,20 @@ public class CourseDto {
     private Integer numberOfRegisteredStudents;
     private ExamType examType;
     private Set<User>userSet;
+    private Integer grade;
 
+  @Override
+  public boolean equals(Object o) {
+    if (this == o) return true;
+    if (o == null || getClass() != o.getClass()) return false;
+    CourseDto other = (CourseDto) o;
+    return Objects.equals(title, other.title);
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hash(title);
+  }
 
     //a gyűjteményeket (set, list) nem kell belerakni a dto-ba, mert amikor létrejön egy objektum, üres
     //listával inicializálódik. Ha például egy kurzshoz tartozó usereket, vagy forumbejegyzéseket

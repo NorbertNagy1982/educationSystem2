@@ -1,0 +1,21 @@
+<div class="header">
+  Tanulmányi rendszer
+</div>
+
+<div class="data">
+   <p style="font-weight: bold;"> Logined:  <span style="font-weight:lighter;">{{signedInUser.familyName}} {{signedInUser.firstname}}  {{signedInUser.middleName}} <span style="font-weight: bold;">Státusz: </span>{{userRole}}</span></p>
+  </div>
+
+
+  <div class="date">
+    {{ currentTime | date: 'mediumTime' }}
+  </div>
+
+  <div class="logout-button">
+    <button (click)="logout()">Out</button>
+  </div>
+
+
+  <div class="personal-data-button">
+    <button (click)="showPersonalData()">Személyes Adatok</button>
+  </div>

@@ -1,0 +1,57 @@
+
+
+.table {
+    position:absolute;
+    top:180px;
+    display: flex;
+    flex-direction: column; /* Arrange items vertically */
+    width: 300px; /* Set width as needed */
+    border: 1px solid black; /* Add border for better appearance */
+}
+.row {
+    display: flex;
+    border-bottom: 1px solid black; /* Add border between rows */
+}
+.cell {
+    padding: 5px; /* Add padding for better appearance */
+    flex: 1; /* Distribute space evenly among cells */
+    text-align: center; /* Center-align text */
+}
+
+
+
+.course-table{
+    position:absolute;
+    top: 180px;
+    left:400px;
+    width:800px;
+    
+    border-collapse: collapse;
+  
+}
+
+.course-table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+.table-title{
+    position:absolute;
+    top:80px;
+    left:650px;
+}
+
+.personal-data-title{
+    position:absolute;
+    top:80px;
+    left:50px;
+}
+
+.get-back-button{
+    position:absolute;
+    top:100px;
+    left:1000px;
+    width:150px;
+    height: 50px;
+    background-color: lightgreen;
+}

@@ -1,0 +1,53 @@
+.student_table{
+    position: absolute;
+    left:10px;
+    top:550px;
+    color:black;
+    font-size: 10px;
+    width: 1200px;
+    border:1px solid black;
+    text-align: center;  
+}
+
+.container{
+    position:absolute;
+    top:60px;
+}
+
+.forum-button{
+    position:absolute;
+    top:420px;
+    width:150px;
+    height:50px;
+}
+
+.reg-button{
+    position:absolute;
+    top:420px;
+    width:150px;
+    height:50px;
+    left:200px;
+}
+
+.del-button{
+    position:absolute;
+    top:420px;
+    width:150px;
+    height:50px;
+    left:400px;
+}
+
+.reg-student-list{
+    position:absolute;
+    top:550px;
+    left:500px;
+}
+
+.back-to-courselist{
+    position:absolute;
+    top:420px;
+    width:150px;
+    height:50px;
+    left:600px;
+    background-color: lightgreen;
+}

@@ -1,0 +1,19 @@
+<table class="student_table">
+  <thead>
+    <th>Hallgató kódja</th>
+    <th>Vezetéknév</th>
+    <th>Keresztnév</th>
+    <th>Keresztnév</th>
+   
+  </thead>
+<tbody>
+  <tr *ngFor = "let item of studentList">
+    <td>{{item.userCode}}</td>
+    <td>{{item.familyName}}</td>
+    <td>{{item.middleName}}</td>
+    <td>{{item.firstname}}</td>
+    
+    
+  </tr>
+</tbody>
+</table>

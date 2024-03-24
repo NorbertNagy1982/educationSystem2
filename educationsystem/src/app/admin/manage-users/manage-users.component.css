@@ -1,0 +1,145 @@
+
+
+.type{
+    position:absolute;
+    top:150px;
+}
+
+
+.family-name{
+    position:absolute;
+    top:180px;
+}
+
+
+.middle-name{
+    position:absolute;
+    top:210px;
+}
+
+
+.first-name{
+    position:absolute;
+    top:240px;
+}
+
+
+.user-name{
+    position:absolute;
+    top:270px;
+}
+
+
+.password{
+    position:absolute;
+    top:300px;
+}
+
+.submitbutton{
+    position:absolute;
+    top: 330px;
+    width:150px;
+    height:50px;
+}
+
+.new-user-title{
+    position:absolute;
+    top:50px;
+    left:20px;
+}
+
+.search-user-title{
+    position: absolute;
+    top: 140px;
+    left: 500px;
+}
+
+.search-name{
+    position:absolute;
+    top:210px;
+    left:500px;
+}
+
+.type-mod{
+    position:absolute;
+    top:500px;
+    left:20px;
+}
+
+
+.family-name-mod{
+    position:absolute;
+    top:530px;
+    left:20px;
+}
+
+
+.middle-name-mod{
+    position:absolute;
+    top:560px;
+    left:20px;
+}
+
+
+.first-name-mod{
+    position:absolute;
+    top:590px;
+    left:20px;
+}
+
+
+.user-name-mod{
+    position:absolute;
+    top:620px;
+    left:20px;
+}
+
+
+.password{
+    position:absolute;
+    top:650px;
+    left:20px;
+}
+
+.mod-user-title{
+    position:absolute;
+    top:400px;
+    left:20px;
+}
+
+.submitbutton-mod{
+    position:absolute;
+    top: 700px;
+    width:150px;
+    height:50px;
+}
+
+.selected-user-table{
+    position:absolute;
+    top:80px;
+    left:500px;
+    text-align: center;  
+    border-collapse: collapse;
+}
+
+.selected-user-table td {
+    border: 1px solid black; /* Add border to table cells */
+   padding: 5px; /* Add padding for better appearance */
+  }
+
+.inactivate-user{
+    position:absolute;
+    left:900px;
+    top:200px;
+    width:200px;
+    height:80px;
+}
+
+.back-btn{
+    position: absolute;
+    top:80px;
+    width:100px;
+    height:50px;
+    background-color: lightgreen;
+    right:50px;
+}

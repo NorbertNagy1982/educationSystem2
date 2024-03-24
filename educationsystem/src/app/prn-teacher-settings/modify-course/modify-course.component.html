@@ -1,0 +1,91 @@
+<h1 class="list-title">
+  Elérhető kurzusok: 
+ </h1>
+ 
+ <table class="user-table">
+   <thead>
+     <th>Kurzuskód</th>
+     <th>Kurzuscím</th>
+     <th>Regisztráció kezdete</th>
+     <th>Regisztráció vége</th>
+     <th>Max létszám</th>
+     <th>Aktuális létszám</th>
+     <th>Vizsga típusa</th>
+ 
+        
+   </thead>
+ <tbody>
+   <tr *ngFor = "let item of allCourses">
+     <td>{{item.code}}</td>
+     <td>{{item.title}}</td>
+     <td>{{item.registrationStart}}</td>
+     <td>{{item.registrationEnd}}</td>
+     <td>{{item.limitOfRegisteredStudents}}</td>
+     <td>{{item.numberOfRegisteredStudents}}</td>
+     <td>{{item.examType}}</td>
+  
+   </tr>
+ </tbody>
+ </table>
+
+ 
+<form class="new-course">
+
+  <div class="code">
+    <span>Módosítandó kurzus kódja: </span>
+    <select [(ngModel)]="selectedCode" name="code">
+      <option *ngFor="let option of courseCodeList" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+  <br>
+
+  <div class="title">
+    <span>Kurzus címe: </span>
+    <input type="text" [(ngModel)]="title" name="title" #priceModel="ngModel" required >
+  </div>
+  <br>
+  
+  <div class="type">
+    <span>Kurzus típusa: </span>
+    <select [(ngModel)]="courseType" name="courseType">
+      <option value="LECTURE">Előadás</option>
+      <option value="PRACTICE">Gyakorlat</option>
+      <option value="SEMINAR">Szeminárium</option>
+    </select>
+  </div>
+
+  <div class="regstart">
+    <span>Regisztráció kezdete: </span>
+    <input type="date" [(ngModel)]="registrationStart" name="regstart" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="regend">
+    <span>Regisztráció vége: </span>
+    <input type="date" [(ngModel)]="registrationEnd" name="regend" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="description">
+    <span>Kurzusleírás: </span>
+    <input type="text" [(ngModel)]="courseDescription" name="desc" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="limit">
+    <span>Maximális regisztrálható hallgató: </span>
+    <input type="number" [(ngModel)]="limitOfRegisteredStudents" name="limit" #priceModel="ngModel" required class="input-textfield" >
+  </div>
+
+  <div class="exam">
+    <span>Vizsga típusa: </span>
+    <select [(ngModel)]="examType" name="examType">
+      <option value="FINAL_EXAM">Félévi vizsga</option>
+      <option value="NO_EXAM">Nincs</option>
+      <option value="PRACTICE">Gyakorlati vizsga</option>
+    </select>
+  </div>
+
+  <button (click)="modifyCourse()" type="submit" class="submitbutton" >Kurzus módosítása</button>
+
+
+  </form>
+
+  <button (click)="getBack()" class="back-btn">Vissza</button>

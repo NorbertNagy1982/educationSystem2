@@ -1,0 +1,89 @@
+
+
+.title{
+    position:absolute;
+    top:120px;
+}
+
+.type{
+    position:absolute;
+    top:150px;
+}
+
+
+.regstart{
+    position:absolute;
+    top:180px;
+}
+
+
+.regend{
+    position:absolute;
+    top:210px;
+}
+
+
+.description{
+    position:absolute;
+    top:240px;
+}
+
+
+.limit{
+    position:absolute;
+    top:270px;
+}
+
+
+.exam{
+    position:absolute;
+    top:300px;
+}
+
+.submitbutton{
+    position:absolute;
+    top: 330px;
+    width:150px;
+    height:50px;
+}
+
+.user_table{
+    position: absolute;
+    left:450px;
+    top:150px;
+    color:black;
+    font-size: 10px;
+    width: 800px;
+    
+    text-align: center;  
+    border-collapse: collapse;
+}
+
+.user_table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+.list-title{
+    position:absolute;
+    top:50px;
+    left:700px;
+}
+
+.new-course-title{
+    position:absolute;
+    top:50px;
+    left:100px;
+}
+
+
+.back-btn{
+    position: absolute;
+    top:330px;
+    width:150px;
+    height:50px;
+    left:250px;
+    background-color: lightgreen;
+  }
+
+

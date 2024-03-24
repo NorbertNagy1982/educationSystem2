@@ -1,0 +1,90 @@
+<div>
+<h1 class="list-title">
+  Elérhető kurzusok: 
+ </h1>
+ 
+ <table class="user-table">
+   <thead>
+     <th>Kurzuskód</th>
+     <th>Kurzuscím</th>
+     <th>Regisztráció kezdete</th>
+     <th>Regisztráció vége</th>
+     <th>Max létszám</th>
+     <th>Aktuális létszám</th>
+     <th>Vizsga típusa</th>
+ 
+        
+   </thead>
+ <tbody>
+   <tr *ngFor = "let item of allCourses">
+     <td>{{item.code}}</td>
+     <td>{{item.title}}</td>
+     <td>{{item.registrationStart}}</td>
+     <td>{{item.registrationEnd}}</td>
+     <td>{{item.limitOfRegisteredStudents}}</td>
+     <td>{{item.numberOfRegisteredStudents}}</td>
+     <td>{{item.examType}}</td>
+  
+   </tr>
+ </tbody>
+ </table>
+
+
+  <h1 class="inact-list-title">
+    Inaktivált kurzusok: 
+   </h1>
+   
+   <table class="inact-course-table">
+     <thead>
+       <th>Kurzuskód</th>
+       <th>Kurzuscím</th>
+       <th>Regisztráció kezdete</th>
+       <th>Regisztráció vége</th>
+       <th>Max létszám</th>
+       <th>Aktuális létszám</th>
+       <th>Vizsga típusa</th>
+   
+          
+     </thead>
+   <tbody>
+     <tr *ngFor = "let item of allInactivatedCourses">
+       <td>{{item.code}}</td>
+       <td>{{item.title}}</td>
+       <td>{{item.registrationStart}}</td>
+       <td>{{item.registrationEnd}}</td>
+       <td>{{item.limitOfRegisteredStudents}}</td>
+       <td>{{item.numberOfRegisteredStudents}}</td>
+       <td>{{item.examType}}</td>
+    
+     </tr>
+   </tbody>
+   </table>
+</div>
+
+ 
+   <form class="new-course">
+    <div class="code">
+      <span>Inaktiválandó kurzus kódja: </span>
+      <select [(ngModel)]="selectedCode" name="code">
+        <option *ngFor="let option of courseCodeList" [value]="option">{{ option }}</option>
+      </select>
+    </div>
+    <br>
+    <button (click)="inactivateCourse()" type="submit" class="submitbutton" >Kurzus inaktiválása</button>
+    </form>
+    
+    
+<form class="react-course">
+  <div class="react-code">
+    <span>Reaktiválandó kurzus kódja: </span>
+    <select [(ngModel)]="selectedCode" name="code">
+      <option *ngFor="let option of inactivatedCourseCodeList" [value]="option">{{ option }}</option>
+    </select>
+  </div>
+  <br>
+  <button (click)="reactivateCourse()" type="submit" class="react-btn" >Kurzus reaktiválása</button>
+  </form>
+
+  <button (click)="goBack()" class="back-button">
+  Vissza
+  </button>

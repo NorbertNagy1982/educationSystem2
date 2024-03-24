@@ -1,3 +1,5 @@
+import { UserCourse } from "./user_course";
+
 export interface Course{
 
     dtoId?:number;
@@ -11,5 +13,7 @@ export interface Course{
     limitOfRegisteredStudents?:number;
     numberOfRegisteredStudents?:number;
     examType?:string;
+    userCourses?:UserCourse;
+    grade?:number;
 
 }

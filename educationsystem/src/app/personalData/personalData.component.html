@@ -1,0 +1,77 @@
+
+
+
+<div class="table">
+  <div class="row">
+      <div class="cell">Id:</div>
+      <div class="cell">{{signedInUser.dtoId}}</div>
+  </div>
+  <div class="row">
+      <div class="cell">Azonosító:</div>
+      <div class="cell">{{signedInUser.userCode}}</div>
+  </div>
+  <div class="row">
+      <div class="cell">Státusz:</div>
+      <div class="cell">{{signedInUser.userType}}</div>
+  </div>
+  <div class="row">
+    <div class="cell">Vezetéknév:</div>
+    <div class="cell">{{signedInUser.familyName}}</div>
+</div>
+<div class="row">
+  <div class="cell">Keresztnév:</div>
+  <div class="cell">{{signedInUser.firstname}}</div>
+</div>
+<div class="row">
+  <div class="cell">Keresztnév:</div>
+  <div class="cell">{{signedInUser.middleName}}</div>
+</div>
+<div class="row">
+  <div class="cell">Felhasználói név:</div>
+  <div class="cell">{{signedInUser.username}}</div>
+</div>
+<div class="row">
+  <div class="cell">Aktív?:</div>
+  <div class="cell">{{signedInUser.activated}}</div>
+</div>
+</div>
+
+<table class="course-table">
+  <thead>
+    <th>Kurzuskód</th>
+    <th>Kurzuscím</th>
+    <th>Regisztráció kezdete</th>
+    <th>Regisztráció vége</th>
+    <th>Max létszám</th>
+    <th>Aktuális létszám</th>
+    <th>Vizsga típusa</th>
+    <th *ngIf="isStudent">Érdemjegy</th>
+   
+  </thead>
+<tbody>
+  <tr *ngFor = "let item of coursesOfAStudent">
+    <td>{{item.courseDto!.code}}</td>
+    <td>{{item.courseDto?.title}}</td>
+    <td>{{item.courseDto?.registrationStart}}</td>
+    <td>{{item.courseDto?.registrationEnd}}</td>
+    <td>{{item.courseDto?.limitOfRegisteredStudents}}</td>
+    <td>{{item.courseDto?.numberOfRegisteredStudents}}</td>
+    <td>{{item.courseDto?.examType}}</td>
+    <td *ngIf="isStudent">{{item.grade}}</td>
+   
+    
+  </tr>
+</tbody>
+</table>
+
+<div class="table-title">
+  <h2>Regisztrált kurzusaim</h2>
+</div>
+
+<div class="personal-data-title">
+  <h2>Személyes adataim</h2>
+</div>
+
+
+
+  <button class="get-back-button" (click)="getBackToMain()">Vissza a főoldalra</button>

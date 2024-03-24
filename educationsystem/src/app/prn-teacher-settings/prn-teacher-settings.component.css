@@ -1,0 +1,69 @@
+.course-table-title{
+    position:absolute;
+    top:70px;
+    left:400px;
+}
+
+.course-table{
+    position:absolute;
+    top: 180px;
+    left:50px;
+    width:800px;
+    
+    border-collapse: collapse;
+  
+}
+
+.course-table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+  .new-course-btn{
+    position:absolute;
+    top:100px;
+    left:1000px;
+    width:150px;
+    height:50px;
+  }
+
+  .modify-course-btn{
+    position:absolute;
+    top:170px;
+    left:1000px;
+    width:150px;
+    height:50px;
+  }
+
+  .new-student-btn{
+    position:absolute;
+    top:240px;
+    left:1000px;
+    width:150px;
+    height:50px;
+  }
+
+  .del-student-btn{
+    position:absolute;
+    top:310px;
+    left:1000px;
+    width:150px;
+    height:50px;
+  }
+
+  .new-teacher-btn{
+    position:absolute;
+    top:310px;
+    left:1000px;
+    width:150px;
+    height:50px;
+  }
+
+
+.del-teacher-btn{
+    position:absolute;
+    top:450px;
+    left:1000px;
+    width:150px;
+    height:50px;
+  }

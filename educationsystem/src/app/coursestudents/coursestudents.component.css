@@ -1,0 +1,31 @@
+.user-table{
+    position:absolute;
+    top: 180px;
+    left:200px;
+    width:800px;
+    
+    border-collapse: collapse;
+  
+}
+
+.user-table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+  .forum-btn{
+    position: absolute;
+    right:50px;
+    top:200px;
+    height:100px;
+    width:200px;
+  }
+
+  .back-btn{
+    position: absolute;
+    right:50px;
+    top:350px;
+    height:100px;
+    width:200px;
+    background-color: lightgreen;
+  }

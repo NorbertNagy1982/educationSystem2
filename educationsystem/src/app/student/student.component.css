@@ -13,10 +13,22 @@
 .user_table{
     position: absolute;
     left:10px;
-    top:200px;
+    top:150px;
     color:black;
     font-size: 10px;
     width: 1200px;
-    border:1px solid black;
+    
     text-align: center;  
+    border-collapse: collapse;
+}
+
+.user_table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+.list-title{
+    position:absolute;
+    top:50px;
+    left:500px;
 }

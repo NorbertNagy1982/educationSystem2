@@ -1,0 +1,18 @@
+.user-course-table{
+    position:absolute;
+    top: 180px;
+    left:200px;
+    width:800px;
+    border-collapse: collapse;
+}
+
+.user-course-table td {
+    border: 1px solid black; /* Add border to table cells */
+    padding: 5px; /* Add padding for better appearance */
+  }
+
+.drop-down-list{
+    position:absolute;
+    top:200px;
+    left:300px;
+}

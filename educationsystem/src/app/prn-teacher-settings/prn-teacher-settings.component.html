@@ -1,0 +1,55 @@
+<h1 class="course-table-title">
+  Oktatott kurzusaim: 
+ </h1>
+ 
+ <table class="course-table">
+   <thead>
+     <th>Kurzuskód</th>
+     <th>Kurzuscím</th>
+     <th>Regisztráció kezdete</th>
+     <th>Regisztráció vége</th>
+     <th>Max létszám</th>
+     <th>Aktuális létszám</th>
+     <th>Vizsga típusa</th>
+     <th>Hallgatók listája</th>
+     <th>Fórum</th>
+        
+   </thead>
+ <tbody>
+   <tr *ngFor = "let item of allRegisteredCoursesList">
+     <td>{{item.code}}</td>
+     <td>{{item.title}}</td>
+     <td>{{item.registrationStart}}</td>
+     <td>{{item.registrationEnd}}</td>
+     <td>{{item.limitOfRegisteredStudents}}</td>
+     <td>{{item.numberOfRegisteredStudents}}</td>
+     <td>{{item.examType}}</td>
+     <td><button (click)="getCourseData(item)" >Megnyitás</button></td>
+     <td><button (click)="getCourseDataToForum(item)">Megnyitás</button></td>
+   </tr>
+ </tbody>
+ </table>
+
+
+ <div>
+  <button (click)="createNewCourse()" class="new-course-btn">Új tantárgy létrehozása</button>
+ </div>
+
+ <div>
+  <button (click)="modifyCourse()" class="modify-course-btn">Tantárgy adatainak módosítása</button>
+ </div>
+
+ <div>
+  <button  (click)="manageStudents()" class="new-student-btn">Hallgató felvétele/törlése</button>
+ </div>
+
+
+
+ <div>
+  <button (click)="manageTeachers()" class="new-teacher-btn">Tanár felvétele/törlése</button>
+ </div>
+
+
+
+
+
