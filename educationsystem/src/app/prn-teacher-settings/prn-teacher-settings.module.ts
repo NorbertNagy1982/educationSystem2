@@ -15,7 +15,8 @@ import { HeaderComponent } from '../header/header.component';
 @NgModule({
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+  
   ],
   declarations: [PrnTeacherSettingsComponent,
     NewCourseComponent,
