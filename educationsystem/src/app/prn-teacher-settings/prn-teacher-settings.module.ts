@@ -7,6 +7,10 @@ import { FormsModule } from '@angular/forms';
 import { ManageStudentsComponent } from './manage-students/manage-students.component';
 import { ManageTeacherComponent } from './manage-teacher/manage-teacher.component';
 import { ListofstudentsComponent } from './listofstudents/listofstudents.component';
+import { HeaderComponent } from '../header/header.component';
+
+
+
 
 @NgModule({
   imports: [
@@ -18,7 +22,13 @@ import { ListofstudentsComponent } from './listofstudents/listofstudents.compone
     ModifyCourseComponent,
     ManageStudentsComponent,
     ManageTeacherComponent,
-    ListofstudentsComponent
-  ]
+    ListofstudentsComponent,
+
+    
+   
+ 
+  ],
+
+ 
 })
 export class PrnTeacherSettingsModule { }

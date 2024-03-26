@@ -16,6 +16,8 @@ import { SetgradeComponent } from './setgrade/setgrade.component';
 import { PrnTeacherSettingsModule } from './prn-teacher-settings/prn-teacher-settings.module';
 import { AdminModule } from './admin/admin.module';
 import { AuthserviceService } from './services/authservice.service';
+import { PrnTeacherSettingsComponent } from './prn-teacher-settings/prn-teacher-settings.component';
+import { NewCourseComponent } from './prn-teacher-settings/new-course/new-course.component';
 
 
 
@@ -31,6 +33,9 @@ import { AuthserviceService } from './services/authservice.service';
       TeacherComponent,
       CoursestudentsComponent,
       SetgradeComponent,
+
+    
+      
      
    ],
   imports: [
@@ -43,6 +48,7 @@ import { AuthserviceService } from './services/authservice.service';
     
   ],
   providers: [],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  exports:[HeaderComponent]
 })
 export class AppModule { }

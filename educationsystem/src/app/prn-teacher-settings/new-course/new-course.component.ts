@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { Course } from 'src/app/services/course';
 import { UserDto } from 'src/app/services/users';
+import { HeaderComponent } from 'src/app/header/header.component';
 
 @Component({
   selector: 'app-new-course',
